@@ -3,13 +3,14 @@ import SyntaxHighlighter from "react-syntax-highlighter"
 import monokaiSublime from "react-syntax-highlighter/dist/cjs/styles/hljs/monokai-sublime"
 import { Direction, GradientBlur } from "@maxbonhomme/ui"
 import { globalCss, styled } from "@stitches/react"
-import { CheckIcon, ClipboardCopyIcon } from "@radix-ui/react-icons"
+import { CheckIcon, ClipboardCopyIcon, GitHubLogoIcon } from "@radix-ui/react-icons"
 import { CopyToClipboard } from "react-copy-to-clipboard"
 import "normalize.css"
 
 const Box = styled("div")
 const Flex = styled("div", { display: "flex" })
 const Img = styled("img")
+const A = styled("a")
 const Copy = styled("p", {
   margin: 0,
   padding: 0,
@@ -48,7 +49,20 @@ export default function Web() {
   globalStyles()
 
   return (
-    <Box css={{ paddingBottom: 90 }}>
+    <>
+      <Box
+        as="header"
+        css={{
+          position: "fixed",
+          top: -1,
+          left: 0,
+          right: 0,
+          height: 100,
+          zIndex: 1,
+        }}
+      >
+        <GradientBlur direction={Direction.TO_TOP} />
+      </Box>
       <Flex
         css={{
           position: "relative",
@@ -61,6 +75,8 @@ export default function Web() {
         <Box
           css={{
             backgroundImage: "url(/images/tom-morbey-NxZK1rr7kC4-unsplash.jpg)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
             filter: "blur(30px)",
             position: "absolute",
             top: 0,
@@ -84,6 +100,7 @@ export default function Web() {
               display: "block",
               width: "100%",
               boxShadow: "0 8px 60px 0px rgba(0,0,0,0.7)",
+              border: "1px solid rgba(255,255,255,0.069)",
             }}
             src="/images/tom-morbey-NxZK1rr7kC4-unsplash.jpg"
             alt="Photo by Tom Morbey on Unsplash"
@@ -128,7 +145,17 @@ export default function Web() {
           {js}
         </SyntaxHighlighter>
       </Box>
-    </Box>
+      <Box css={{ padding: "120px 0", textAlign: "center" }}>
+        <A
+          css={{ all: "unset", cursor: "pointer" }}
+          href="https://github.com/maximebonhomme/bonhomme-ui"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <GitHubLogoIcon width={26} height={26} />
+        </A>
+      </Box>
+    </>
   )
 }
 
@@ -143,7 +170,7 @@ const YarnInstall = () => {
   }
 
   return (
-    <Box css={{ padding: "100px 30px", backgroundColor: "black", textAlign: "center" }}>
+    <Box css={{ padding: "120px 30px", backgroundColor: "black", textAlign: "center" }}>
       <Flex
         css={{
           borderRadius: 20,
