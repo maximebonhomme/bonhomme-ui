@@ -9,11 +9,27 @@ import "normalize.css"
 
 const Box = styled("div")
 const Flex = styled("div", { display: "flex" })
-const Img = styled("img")
-const A = styled("a")
+const Img = styled("img", { width: "100%" })
+const A = styled("a", {
+  all: "unset",
+  cursor: "pointer",
+})
 const Copy = styled("p", {
   margin: 0,
   padding: 0,
+})
+
+const ImageBox = styled(Flex, {
+  position: "relative",
+  borderRadius: 20,
+  overflow: "hidden",
+  boxShadow: "0 8px 60px 0px rgba(0,0,0,0.7)",
+  border: "1px solid rgba(255,255,255,0.069)",
+  "&:hover": {
+    ".gradient-blur": {
+      display: "none",
+    },
+  },
 })
 
 const globalStyles = globalCss({
@@ -50,19 +66,6 @@ export default function Web() {
 
   return (
     <>
-      <Box
-        as="header"
-        css={{
-          position: "fixed",
-          top: -1,
-          left: 0,
-          right: 0,
-          height: 100,
-          zIndex: 1,
-        }}
-      >
-        <GradientBlur direction={Direction.TO_TOP} />
-      </Box>
       <Flex
         css={{
           position: "relative",
@@ -86,33 +89,24 @@ export default function Web() {
             opacity: 0.3,
           }}
         />
-        <Box
+        <ImageBox
           css={{
-            position: "relative",
-            borderRadius: 20,
-            overflow: "hidden",
             maxWidth: 600,
           }}
         >
-          <GradientBlur direction={Direction.TO_BOTTOM} />
+          <GradientBlur direction={Direction.TO_BOTTOM} className="gradient-blur" />
           <Img
-            css={{
-              display: "block",
-              width: "100%",
-              boxShadow: "0 8px 60px 0px rgba(0,0,0,0.7)",
-              border: "1px solid rgba(255,255,255,0.069)",
-            }}
             src="/images/tom-morbey-NxZK1rr7kC4-unsplash.jpg"
             alt="Photo by Tom Morbey on Unsplash"
           />
           <Box css={{ position: "absolute", bottom: 30, left: 30, right: 30 }}>
-            <Copy css={{ fontSize: 22, marginBottom: 8 }}>GradientBlur component</Copy>
+            <Copy css={{ fontSize: 26, marginBottom: 8 }}>GradientBlur component</Copy>
             <Copy css={{ maxWidth: "80%" }}>
               A zero-depedency React component to create a pure CSS progressive blur on
-              any element. Customizable via style or classname.
+              top of any element.
             </Copy>
           </Box>
-        </Box>
+        </ImageBox>
       </Flex>
       <YarnInstall />
 
@@ -145,6 +139,34 @@ export default function Web() {
           {js}
         </SyntaxHighlighter>
       </Box>
+
+      <Flex css={{ justifyContent: "center", marginTop: 90 }}>
+        <ImageBox
+          css={{
+            margin: "0 20px",
+            maxWidth: 250,
+          }}
+        >
+          <Img
+            src="/images/alex-jiang-BwHrpL9ay7Y-unsplash.jpg"
+            alt="Photo by Aedrian on Unsplash"
+          />
+          <GradientBlur className="gradient-blur" direction={Direction.TO_BOTTOM} />
+        </ImageBox>
+        <ImageBox
+          css={{
+            margin: "0 20px",
+            maxWidth: 250,
+          }}
+        >
+          <Img
+            src="/images/alai-photography-kyv_W6X4APM-unsplash.jpg"
+            alt="Photo by Aedrian on Unsplash"
+          />
+          <GradientBlur className="gradient-blur" direction={Direction.TO_BOTTOM} />
+        </ImageBox>
+      </Flex>
+
       <Box css={{ padding: "120px 0", textAlign: "center" }}>
         <A
           css={{ all: "unset", cursor: "pointer" }}
@@ -154,6 +176,37 @@ export default function Web() {
         >
           <GitHubLogoIcon width={26} height={26} />
         </A>
+      </Box>
+
+      <Box css={{ textAlign: "center", fontSize: 12, marginBottom: 90 }}>
+        <Copy css={{ fontSize: 16, marginBottom: 12 }}>Photos credits</Copy>
+        <Copy>
+          <A href="https://unsplash.com/@tommorbey?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+            Tom Morbey
+          </A>{" "}
+          on{" "}
+          <A href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+            Unsplash
+          </A>
+        </Copy>
+        <Copy>
+          <A href="https://unsplash.com/@aleex1809?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+            Alex jiang
+          </A>{" "}
+          on{" "}
+          <A href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+            Unsplash
+          </A>
+        </Copy>
+        <Copy>
+          <A href="https://unsplash.com/@alaigraphy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+            Alai Photography
+          </A>{" "}
+          on{" "}
+          <A href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+            Unsplash
+          </A>
+        </Copy>
       </Box>
     </>
   )
