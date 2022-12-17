@@ -10,6 +10,7 @@ export enum Direction {
 interface GradientBlurProps {
   direction: Direction
   style?: CSSProperties
+  className?: string
 }
 
 const STEP_COUNT: number = 8
@@ -29,11 +30,11 @@ const gradientStyles: CSSProperties = {
 
 const clamp = (num: number, min: number, max: number) => Math.min(Math.max(num, min), max)
 
-export const GradientBlur = ({ direction, style }: GradientBlurProps) => {
+export const GradientBlur = ({ direction, style, className }: GradientBlurProps) => {
   const stepsArray: number[] = Array.from(Array(STEP_COUNT).keys())
 
   return (
-    <div style={{ ...baseStyles, ...style }}>
+    <div style={{ ...baseStyles, ...style }} className={className}>
       {stepsArray.map((item) => {
         const baseFactor: number = (item + 1) * STEP_VALUE
         const blur: number = item * item
