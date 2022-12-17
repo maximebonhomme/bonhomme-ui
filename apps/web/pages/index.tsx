@@ -140,33 +140,6 @@ export default function Web() {
         </SyntaxHighlighter>
       </Box>
 
-      <Flex css={{ justifyContent: "center", marginTop: 90 }}>
-        <ImageBox
-          css={{
-            margin: "0 20px",
-            maxWidth: 250,
-          }}
-        >
-          <Img
-            src="/images/alex-jiang-BwHrpL9ay7Y-unsplash.jpg"
-            alt="Photo by Aedrian on Unsplash"
-          />
-          <GradientBlur className="gradient-blur" direction={Direction.TO_BOTTOM} />
-        </ImageBox>
-        <ImageBox
-          css={{
-            margin: "0 20px",
-            maxWidth: 250,
-          }}
-        >
-          <Img
-            src="/images/alai-photography-kyv_W6X4APM-unsplash.jpg"
-            alt="Photo by Aedrian on Unsplash"
-          />
-          <GradientBlur className="gradient-blur" direction={Direction.TO_BOTTOM} />
-        </ImageBox>
-      </Flex>
-
       <Box css={{ padding: "120px 0", textAlign: "center" }}>
         <A
           css={{ all: "unset", cursor: "pointer" }}
@@ -183,24 +156,6 @@ export default function Web() {
         <Copy>
           <A href="https://unsplash.com/@tommorbey?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
             Tom Morbey
-          </A>{" "}
-          on{" "}
-          <A href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
-            Unsplash
-          </A>
-        </Copy>
-        <Copy>
-          <A href="https://unsplash.com/@aleex1809?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
-            Alex jiang
-          </A>{" "}
-          on{" "}
-          <A href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
-            Unsplash
-          </A>
-        </Copy>
-        <Copy>
-          <A href="https://unsplash.com/@alaigraphy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
-            Alai Photography
           </A>{" "}
           on{" "}
           <A href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
